@@ -1,0 +1,5 @@
+Valorant	Tactical Shooting game involving two teams with 5 players in each team.	Windows	RiotGames Website	0
+League of Legends	Multiplayer online battle arena video game.	Windows/Mac	RiotGames Website	0
+Hunt:Showdown	First-person shooter video game.	Windows/PS4/XboxOne	Crytek	40
+Counter-Strike: Global Offensive	First-person shooter video game.	Windows/Mac/XboxOne/Linux/Xbox360/PS3	Valve	0
+Minecraft	Sandbox video game.	Java/Windows/PS4/Android/Switch/Mac/WiiU,AppleTV,iOS	Mojang	30
