@@ -8,12 +8,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		ArrayList<VideoGame> games = new ArrayList<>();
-		parseVideoGames(games);
-		//Test
-		for(VideoGame v:games) {
-			System.out.println(v.toString());
-		}
+		UI ui = new UI();
 		
 	}
 	/**
@@ -33,7 +28,7 @@ public class Main {
 		
 		
 		try {
-			file = new File("VideoGameList.txt");
+			file = new File("./src/VideoGameList.txt");
 			input = new Scanner(file);
 			while(input.hasNext()) {
 				inputLine = input.nextLine();
