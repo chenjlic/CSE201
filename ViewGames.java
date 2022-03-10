@@ -1,19 +1,18 @@
+import java.awt.BorderLayout;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class UI2 {
+public class ViewGames {
 	
-	private static void jframe() {
-		JFrame jf = new JFrame("View Video Games");
-		jf.setSize(1400,600);
-		jf.setVisible(true);
-		jf.setResizable(false);
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public static void viewGames(JFrame jf, ArrayList<VideoGame> games) {
+		
 		jf.setLocationRelativeTo(null);
-        JPanel panel = new JPanel();    
-        jf.add(panel);
+        JPanel panel = new JPanel();  
         panel.setLayout(null);
         JLabel l1 = new JLabel("Name");
         l1.setBounds(20,10,70,25);
@@ -30,7 +29,7 @@ public class UI2 {
         JLabel l5 = new JLabel("Description");
         l5.setBounds(20, 290, 70, 25);
         panel.add(l5);
-        JLabel l6 = new JLabel("Valorant");
+        JLabel l6 = new JLabel(games.get(0).getName());
         l6.setBounds(110, 10, 200, 25);
         panel.add(l6);
         JLabel l7 = new JLabel("Windows");
@@ -105,10 +104,9 @@ public class UI2 {
         JLabel l30 = new JLabel("Sandbox video game.");
         l30.setBounds(1050, 290,350, 25);
         panel.add(l30);
+        jf.add(panel, BorderLayout.CENTER);
 	}
-
-	public static void main(String[] args) {
-	jframe();	
-	}
+	
+	
 
 }
