@@ -28,7 +28,7 @@ public class Main {
 		
 		
 		try {
-			file = new File("./src/VideoGameList.txt");
+			file = new File("VideoGameList.txt");
 			input = new Scanner(file);
 			while(input.hasNext()) {
 				inputLine = input.nextLine();
