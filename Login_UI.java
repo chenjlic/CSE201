@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField; 
+import java.awt.event.*;
 public class Login_UI {
     
     public static void main(String[] args) {    
@@ -14,11 +15,6 @@ public class Login_UI {
         frame.setResizable(false);
         JPanel panel = new JPanel();    
         frame.add(panel);
-        ui(panel);
-        frame.setVisible(true);
-    }
-
-    private static void ui(JPanel panel) {
         panel.setLayout(null);
         JLabel AccountLabel = new JLabel("Account:");
         AccountLabel.setBounds(10,20,80,25);
@@ -34,7 +30,45 @@ public class Login_UI {
         panel.add(passwordText);
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(10, 80, 80, 25);
+        
+        
+        class jbuttonclicked implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(Log_In.Login(AccountText.getText(), passwordText.getText())) {
+					JFrame f1 = new JFrame("Success!");
+					f1.setSize(500, 100);
+					f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			        f1.setLocationRelativeTo(null);
+			        f1.setResizable(false);
+			        JPanel p1 = new JPanel();
+			        f1.add(p1);
+			        JLabel l1 = new JLabel("Login Success!");
+			        p1.add(l1);
+			        f1.setVisible(true);
+				}
+				else {
+					JFrame f2 = new JFrame("Failed!");
+					f2.setSize(500, 100);
+					f2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			        f2.setLocationRelativeTo(null);
+			        f2.setResizable(false);
+			        JPanel p2 = new JPanel();
+			        f2.add(p2);
+			        JLabel l2 = new JLabel("Your account or password is invalid!");
+			        p2.add(l2);
+			        f2.setVisible(true);
+				}
+				
+			}
+        	
+        }
+        loginButton.addActionListener(new jbuttonclicked ());
         panel.add(loginButton);
+        frame.setVisible(true);
+        
     }
 
+    
 }
