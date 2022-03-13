@@ -6,12 +6,12 @@ import java.io.*;
 public class Log_In {
 	
 //=========================== Properties	
-	private boolean login=false;
-	private Map<String, String> UserAccount;
+	public static boolean login=false;
+	public static Map<String, String> UserAccount;
 	
 //=========================== Constructors
-	public Log_In() {
-		File file = new File("User Account.txt");
+	public static void LogIn() {
+		File file = new File("C:\\Users\\81295\\OneDrive\\Desktop\\a\\src\\User Account.txt.txt");
 		UserAccount = new TreeMap<>();
 		try {
 			InputStreamReader inp = new InputStreamReader(new FileInputStream(file),"GBK");
@@ -27,24 +27,24 @@ public class Log_In {
 					}
 				}
 				account = a.substring(0,index);
-				password = a.substring(index);
+				password = a.substring(index+1);
+				
 				UserAccount.put(account, password);
 			}
 			read.close();
 		}catch(Exception e){
+			System.out.println("Can not find the file");
 		}
 	}
 	
 //=========================== Methods
 	
-	public void Login(String account, String password) {
+	public static boolean Login(String account, String password) {
+		LogIn();
 		if(UserAccount.containsKey(account)&&UserAccount.get(account).equals(password)) {
 			login = true;
-			System.out.println("Log in success!");
 		}
-		else {
-			System.out.println("Your account or password is invalid, pleased try again.");
-		}
+		return login;
 	}
 	
 	public boolean login() {
@@ -55,4 +55,7 @@ public class Log_In {
 		return UserAccount;
 	}
 	
+	
+	
 }
+
