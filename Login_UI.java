@@ -8,6 +8,7 @@ import java.awt.event.*;
 public class Login_UI {
     
     public static void main(String[] args) {    
+    	
         JFrame frame = new JFrame("Login");
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,12 +31,20 @@ public class Login_UI {
         panel.add(passwordText);
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(10, 80, 80, 25);
+        JButton forgotPass = new JButton("Forgot Password");
+        forgotPass.setBounds(10,120,160,25);
+        
+        JButton enterButton = new JButton("Enter");
+        enterButton.setBounds(10, 80, 80, 25);
         
         
         class jbuttonclicked implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//if login button clicked
+				
+				if (e.getSource().equals(loginButton)) {
 				if(Log_In.Login(AccountText.getText(), passwordText.getText())) {
 					JFrame f1 = new JFrame("Success!");
 					f1.setSize(500, 100);
@@ -60,15 +69,64 @@ public class Login_UI {
 			        p2.add(l2);
 			        f2.setVisible(true);
 				}
+				}
 				
+				//if forgot pass clicked
+				if (e.getSource().equals(forgotPass)) {
+					forgotPassBox();
+					
+					
+				}
+				
+			
 			}
         	
         }
         loginButton.addActionListener(new jbuttonclicked ());
+        forgotPass.addActionListener(new jbuttonclicked ());
+
         panel.add(loginButton);
+        panel.add(forgotPass);
         frame.setVisible(true);
         
     }
+    
+    public static void forgotPassBox() {
+    	JFrame forgotPassEnterUser = new JFrame("Enter your username");
+    	forgotPassEnterUser.setSize(500, 100);
+		forgotPassEnterUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        forgotPassEnterUser.setLocationRelativeTo(null);
+        forgotPassEnterUser.setResizable(false);
+    	JPanel panel = new JPanel();
+    	forgotPassEnterUser.add(panel);
+        JLabel AccountLabel = new JLabel("Account:");
+        AccountLabel.setBounds(10,20,80,25);
+        panel.add(AccountLabel);
+        JTextField AccountText = new JTextField(20);
+        AccountText.setBounds(100,20,165,25);
+        panel.add(AccountText);
+        JButton enterButton = new JButton("Enter");
+        enterButton.setBounds(10, 80, 80, 25);
+        panel.add(enterButton);
+        forgotPassEnterUser.setVisible(true);
+        
+        class jbuttonclicked implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//if enter clicked
+				if (e.getSource().equals(enterButton)) {
+					Log_In.securityQuestion(AccountText.getText());
+				}
+			}
+			}
+        enterButton.addActionListener(new jbuttonclicked());
+        forgotPassEnterUser.setVisible(true);
+
+        
+    	
+    }
+    
 
     
 }
