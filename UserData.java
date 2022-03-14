@@ -15,6 +15,9 @@ public class UserData {
 		FavoriteSize=0;
 	}
 	
+	//========================== Getters and setters
+	
+	
 	//=========================== Methods
 	
 	//A method that users who log in able to 'favorite' specific game

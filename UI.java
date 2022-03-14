@@ -16,7 +16,9 @@ public class UI {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf, games);
 		CreateAccount.createAccountButton(jf);
+		Log_In.CreateLogInButton(jf);
 		jf.setVisible(true);
+		
 	}
 
 }
