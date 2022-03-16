@@ -5,8 +5,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField; 
 import java.awt.event.*;
+import java.util.Timer;
+import java.util.TimerTask;
 public class Login_UI {
-    
+	
     public static void main(String[] args) {    
     	
         JFrame frame = new JFrame("Login");
@@ -36,7 +38,7 @@ public class Login_UI {
         
         JButton enterButton = new JButton("Enter");
         enterButton.setBounds(10, 80, 80, 25);
-        
+        Timer timer = new Timer();
         
         class jbuttonclicked implements ActionListener{
 
@@ -56,6 +58,15 @@ public class Login_UI {
 			        JLabel l1 = new JLabel("Login Success!");
 			        p1.add(l1);
 			        f1.setVisible(true);
+			        Log_In.login = true;
+			        timer.schedule(new TimerTask() {
+			        	@Override
+			        	public void run() {
+			        		f1.setVisible(false);
+			        		frame.setVisible(false);
+			        	}
+			        }, 2000);
+			        Log_In.logged(AccountText.getText());
 				}
 				else {
 					JFrame f2 = new JFrame("Failed!");
@@ -68,6 +79,12 @@ public class Login_UI {
 			        JLabel l2 = new JLabel("Your account or password is invalid!");
 			        p2.add(l2);
 			        f2.setVisible(true);
+			        timer.schedule(new TimerTask() {
+			        	@Override
+			        	public void run() {
+			        		f2.setVisible(false);
+			        	}
+			        }, 1000);
 				}
 				}
 				

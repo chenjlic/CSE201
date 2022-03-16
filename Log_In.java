@@ -19,15 +19,16 @@ public class Log_In {
 	public static boolean login=false;
 	public static Map<String, String> UserAccount;
 	public static Map<String, String[]> UserSecurity;
-	
+	public static JLabel log = new JLabel("");
+	public static JButton outbutton = new JButton("Log Out");
+	public static JButton inbutton = new JButton("Log In");
 //=========================== Constructors
 	
 	public static void CreateLogInButton(JFrame jf) {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		JButton button = new JButton("Log In");
-		button.setSize(30, 100);
-		button.addActionListener(new ActionListener() {
+		inbutton.setSize(30, 100);
+		inbutton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -35,7 +36,19 @@ public class Log_In {
 			}
 
 		});
-		panel.add(button, BorderLayout.LINE_START);
+		panel.add(inbutton, BorderLayout.LINE_START);
+		panel.add(log);
+		outbutton.setSize(30,100);
+		outbutton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				logout();
+			}
+		});
+		inbutton.setVisible(true);
+		outbutton.setVisible(false);
+		panel.add(outbutton, BorderLayout.LINE_END);
 		jf.getContentPane().add(panel, BorderLayout.SOUTH);
 	}
 	public static void LogIn() {
@@ -80,10 +93,26 @@ public class Log_In {
 		return login;
 	}
 	
-
-	
 	public boolean login() {
 		return login;
+	}
+	
+	public static void logged(String account) {
+		logged(account, UI.jf);
+	}
+	public static void logged(String account, JFrame jf) {
+		if(login == true) {
+			log.setText("Logged in as: " + account);
+			inbutton.setVisible(false);
+			outbutton.setVisible(true);
+		}
+	}
+	
+	public static void logout() {
+		login = false;
+		log.setText("");
+		inbutton.setVisible(true);
+		outbutton.setVisible(false);
 	}
 	
 	public Map<String, String> map(){

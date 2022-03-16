@@ -5,11 +5,11 @@ import javax.swing.*;
 
 
 public class UI {
-	
+	static JFrame jf = new JFrame("Video Game Catalog");
 	public UI() {
 		ArrayList<VideoGame> games = new ArrayList<>();
 		Main.parseVideoGames(games);
-		JFrame jf = new JFrame("Video Game Catalog");
+		
 		jf.setLayout(new BorderLayout());
 		jf.setSize(1400,600);
 		jf.setResizable(false);
@@ -17,6 +17,7 @@ public class UI {
 		ViewGames.viewGames(jf, games);
 		CreateAccount.createAccountButton(jf);
 		Log_In.CreateLogInButton(jf);
+		
 		jf.setVisible(true);
 		
 	}
