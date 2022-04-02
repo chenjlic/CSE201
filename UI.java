@@ -15,9 +15,11 @@ public class UI {
 		jf.setResizable(false);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf, games);
-		CreateAccount.createAccountButton(jf);
+		JPanel northPanel = new JPanel();
 		Log_In.CreateLogInButton(jf);
-		
+		SearchBar.createSearchBar(jf, northPanel);
+		SearchButton.createSearchButton(jf, northPanel);
+		CreateAccount.createAccountButton(jf, northPanel);
 		jf.setVisible(true);
 		
 	}

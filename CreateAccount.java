@@ -17,9 +17,9 @@ public class CreateAccount {
 	private static JTextField recoveryAnswerField;
 
 	
-	public static void createAccountButton(JFrame jf) {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
+	public static void createAccountButton(JFrame jf, JPanel panel) {
+		
+		
 		JButton button = new JButton("Create Account");
 		button.setSize(30, 100);
 		button.addActionListener(new ActionListener() {
@@ -30,7 +30,7 @@ public class CreateAccount {
 			}
 
 		});
-		panel.add(button, BorderLayout.LINE_END);
+		panel.add(button);
 		jf.getContentPane().add(panel, BorderLayout.NORTH);
 		
 	}
