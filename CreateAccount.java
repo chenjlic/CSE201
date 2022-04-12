@@ -19,7 +19,6 @@ public class CreateAccount {
 	
 	public static void createAccountButton(JFrame jf, JPanel panel) {
 		
-		
 		JButton button = new JButton("Create Account");
 		button.setSize(30, 100);
 		button.addActionListener(new ActionListener() {

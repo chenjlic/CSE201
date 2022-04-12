@@ -17,9 +17,10 @@ public class UI {
 		ViewGames.viewGames(jf, games);
 		JPanel northPanel = new JPanel();
 		Log_In.CreateLogInButton(jf);
-		SearchBar.createSearchBar(jf, northPanel);
+		//SearchBar.createSearchButton(jf, northPanel);
 		SearchButton.createSearchButton(jf, northPanel);
 		CreateAccount.createAccountButton(jf, northPanel);
+		Sort.createSortMenu(jf,northPanel);
 		jf.setVisible(true);
 		
 	}
