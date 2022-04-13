@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class ViewGames {
 	public static JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30;
-	public static void viewGames(JFrame jf, ArrayList<VideoGame> games) {
+	public static void viewGames(JFrame jf) {
 		
 		jf.setLocationRelativeTo(null);
         JPanel panel = new JPanel();  
@@ -29,7 +29,7 @@ public class ViewGames {
          l5 = new JLabel("Description");
         l5.setBounds(20, 290, 70, 25);
         panel.add(l5);
-         l6 = new JLabel(games.get(0).getName());
+         l6 = new JLabel("Valorant");
         l6.setBounds(110, 10, 200, 25);
         panel.add(l6);
          l7 = new JLabel("Windows");
