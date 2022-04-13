@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class SearchButton {
+public class SearchBar {
 	
 	public static void createSearchButton(JFrame jf, JPanel panel) {
 		JTextField searchBar = new JTextField(50);

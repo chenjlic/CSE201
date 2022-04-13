@@ -21,6 +21,7 @@ public class UI {
 		SearchButton.createSearchButton(jf, northPanel);
 		CreateAccount.createAccountButton(jf, northPanel);
 		Sort.createSortMenu(jf,northPanel);
+		FilterDropDown.createFilterButton(jf, northPanel);
 		jf.setVisible(true);
 		
 	}
