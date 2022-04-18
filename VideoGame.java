@@ -31,7 +31,19 @@ public class VideoGame {
 		return "Name: " + name + " Description: " + description + " Platforms: " + platformsFormatted + " Developer: " + 
 				developer + " Price: " + price;
 	}
-
+	public String getPlatformString() {
+		String platformsFormatted = "";
+		for(int i = 0; i < platforms.length; i++) {
+			if(i == platforms.length-1) {
+				platformsFormatted += platforms[i];
+			}
+			else {
+				platformsFormatted += platforms[i] + "/";
+			}
+		}
+		return platformsFormatted;
+	
+	}
 	public String getName() {
 		return name;
 	}
