@@ -13,7 +13,7 @@ public class Login_UI {
     	
         JFrame frame = new JFrame("Login");
         frame.setSize(400, 200);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         JPanel panel = new JPanel();    
@@ -50,7 +50,7 @@ public class Login_UI {
 				if(Log_In.Login(AccountText.getText(), passwordText.getText())) {
 					JFrame f1 = new JFrame("Success!");
 					f1.setSize(500, 100);
-					f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			        f1.setLocationRelativeTo(null);
 			        f1.setResizable(false);
 			        JPanel p1 = new JPanel();
@@ -71,7 +71,7 @@ public class Login_UI {
 				else {
 					JFrame f2 = new JFrame("Failed!");
 					f2.setSize(500, 100);
-					f2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					f2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			        f2.setLocationRelativeTo(null);
 			        f2.setResizable(false);
 			        JPanel p2 = new JPanel();
@@ -111,7 +111,7 @@ public class Login_UI {
     public static void forgotPassBox() {
     	JFrame forgotPassEnterUser = new JFrame("Enter your username");
     	forgotPassEnterUser.setSize(500, 100);
-		forgotPassEnterUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		forgotPassEnterUser.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         forgotPassEnterUser.setLocationRelativeTo(null);
         forgotPassEnterUser.setResizable(false);
     	JPanel panel = new JPanel();

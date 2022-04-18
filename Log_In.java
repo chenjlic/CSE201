@@ -24,9 +24,9 @@ public class Log_In {
 	public static JButton inbutton = new JButton("Log In");
 //=========================== Constructors
 	
-	public static void CreateLogInButton(JFrame jf) {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
+	public static void CreateLogInButton(JFrame jf, JPanel panel) {
+		
+		
 		inbutton.setSize(30, 100);
 		inbutton.addActionListener(new ActionListener() {
 
@@ -36,7 +36,7 @@ public class Log_In {
 			}
 
 		});
-		panel.add(inbutton, BorderLayout.LINE_START);
+		panel.add(inbutton);
 		panel.add(log);
 		outbutton.setSize(30,100);
 		outbutton.addActionListener(new ActionListener() {
@@ -48,8 +48,8 @@ public class Log_In {
 		});
 		inbutton.setVisible(true);
 		outbutton.setVisible(false);
-		panel.add(outbutton, BorderLayout.LINE_END);
-		jf.getContentPane().add(panel, BorderLayout.SOUTH);
+		panel.add(outbutton);
+		
 	}
 	public static void LogIn() {
 		File file = new File("UserAccounts.txt");

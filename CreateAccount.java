@@ -15,11 +15,21 @@ import javax.swing.JTextField;
 public class CreateAccount {
 	private static JTextField recoveryQuestionField;
 	private static JTextField recoveryAnswerField;
-
-	
+	private static JButton button;
+	private static JFrame frame;
+	private static JPanel panel;
+	private static JLabel AccountLabel;
+	private static JTextField AccountText;
+	private static JLabel passwordLabel;
+	private static JPasswordField passwordText;
+	private static JButton signUpButton;
+	private static JLabel recoveryQuestion;
+	private static JLabel recoveryAnswer;
+	private static JLabel errorMessage;
+	private static JLabel errorMessage2;
 	public static void createAccountButton(JFrame jf, JPanel panel) {
 		
-		JButton button = new JButton("Create Account");
+		button = new JButton("Create Account");
 		button.setSize(30, 100);
 		button.addActionListener(new ActionListener() {
 
@@ -38,33 +48,32 @@ public class CreateAccount {
 	 * @wbp.parser.entryPoint
 	 */
 	public static void createAccountUI(JFrame jf) {
-		JFrame frame = new JFrame("Create Account");
+		frame = new JFrame("Create Account");
 		frame.setSize(511, 349);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 		panel.setLayout(null);
-		JLabel AccountLabel = new JLabel("Account:");
+		AccountLabel = new JLabel("Account:");
 		AccountLabel.setBounds(10, 20, 80, 25);
 		panel.add(AccountLabel);
-		JTextField AccountText = new JTextField(20);
+		AccountText = new JTextField(20);
 		AccountText.setBounds(100, 20, 389, 25);
 		panel.add(AccountText);
-		JLabel passwordLabel = new JLabel("Password:");
+		passwordLabel = new JLabel("Password:");
 		passwordLabel.setBounds(10, 50, 80, 25);
-		panel.add(passwordLabel);
-		JPasswordField passwordText = new JPasswordField(20);
+		passwordText = new JPasswordField(20);
 		passwordText.setBounds(100, 50, 389, 25);
 		panel.add(passwordText);
-		JButton signUpButton = new JButton("Sign Up");
+		signUpButton = new JButton("Sign Up");
 		
 		signUpButton.setBounds(10, 197, 80, 25);
 		panel.add(signUpButton);
 		
-		JLabel recoveryQuestion = new JLabel("Enter Recovery Question:");
+		recoveryQuestion = new JLabel("Enter Recovery Question:");
 		recoveryQuestion.setBounds(10, 86, 166, 14);
 		panel.add(recoveryQuestion);
 		
@@ -73,7 +82,7 @@ public class CreateAccount {
 		panel.add(recoveryQuestionField);
 		recoveryQuestionField.setColumns(10);
 		
-		JLabel recoveryAnswer = new JLabel("Enter Recovery Question Answer: ");
+		recoveryAnswer = new JLabel("Enter Recovery Question Answer: ");
 		recoveryAnswer.setBounds(10, 142, 199, 14);
 		panel.add(recoveryAnswer);
 		
@@ -82,11 +91,11 @@ public class CreateAccount {
 		panel.add(recoveryAnswerField);
 		recoveryAnswerField.setColumns(10);
 		
-		JLabel errorMessage = new JLabel("");
+		errorMessage = new JLabel("");
 		errorMessage.setBounds(10, 233, 475, 25);
 		panel.add(errorMessage);
 		
-		JLabel errorMessage2 = new JLabel("");
+		errorMessage2 = new JLabel("");
 		errorMessage2.setBounds(10, 274, 479, 25);
 		panel.add(errorMessage2);
 		

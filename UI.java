@@ -16,9 +16,9 @@ public class UI {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf);
 		JPanel northPanel = new JPanel();
-		Log_In.CreateLogInButton(jf);
-		//SearchBar.createSearchButton(jf, northPanel);
-		SearchButton.createSearchButton(jf, northPanel);
+		Log_In.CreateLogInButton(jf, northPanel);
+		SearchBar bar = new SearchBar(northPanel);
+		SearchButton.createSearchButton(jf, northPanel, bar);
 		CreateAccount.createAccountButton(jf, northPanel);
 		Sort.createSortMenu(jf,northPanel);
 		jf.setVisible(true);
