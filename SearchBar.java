@@ -13,13 +13,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class SearchBar extends JTextField{
+public class SearchBar{
 	
-		JTextField searchBar;
+		static JTextField searchBar;
 		
 		SearchBar(JPanel panel) {
 		searchBar = new JTextField(50);
 		panel.add(searchBar);
 		
 	}
+public static String getText() {
+	return searchBar.getText();
+}
 }
