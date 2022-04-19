@@ -20,7 +20,7 @@ public class UI {
 		SearchBar bar = new SearchBar(northPanel);
 		SearchButton.createSearchButton(jf, northPanel, bar);
 		CreateAccount.createAccountButton(jf, northPanel);
-		Sort.createSortMenu(jf,northPanel);
+		//Sort.createSortMenu(jf,northPanel);
 		jf.setVisible(true);
 		
 	}

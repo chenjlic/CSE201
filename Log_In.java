@@ -1,12 +1,16 @@
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -23,6 +27,7 @@ public class Log_In {
 	public static JButton outbutton = new JButton("Log Out");
 	public static JButton inbutton = new JButton("Log In");
 //=========================== Constructors
+	
 	
 	public static void CreateLogInButton(JFrame jf, JPanel panel) {
 		
@@ -136,12 +141,12 @@ public class Log_In {
 		JFrame questionBox = new JFrame(UserSecurity.get(account)[0]);
 		
     	questionBox.setSize(500, 100);
-		questionBox.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		questionBox.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         questionBox.setLocationRelativeTo(null);
         questionBox.setResizable(false);
 		
 		 JPanel panel = new JPanel(); 
-		 questionBox.add(panel);  
+		 questionBox.getContentPane().add(panel);  
 		 JLabel answerPrompt = new JLabel("Answer:"); 
 		 answerPrompt.setBounds(10,20,80,25);
 		 panel.add(answerPrompt); 
@@ -179,12 +184,64 @@ public class Log_In {
 	
 	public static void changePass(String user) {
 
-		JFrame passBox = new JFrame("Change password");
+		JFrame frame = new JFrame("Enter new Password");
+		frame.setSize(596, 182);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+		panel.setLayout(null);
+		JLabel AccountLabel = new JLabel("Password:");
+		AccountLabel.setBounds(10, 20, 80, 25);
+		panel.add(AccountLabel);
+		JPasswordField passwordText = new JPasswordField(20);
+		passwordText.setBounds(141, 20, 389, 25);
+		panel.add(passwordText);
+		JLabel passwordLabel = new JLabel("Confirm Password:");
+		passwordLabel.setBounds(10, 50, 80, 25);
+		JPasswordField passwordText2 = new JPasswordField(20);
+		passwordText2.setBounds(141, 50, 389, 25);
+		panel.add(passwordText2);
 		
-    	CreateAccount.createAccountUI(passBox);
-    	passBox.setVisible(true);
+		JLabel lblNewLabel = new JLabel("Confirm Password:");
+		lblNewLabel.setBounds(10, 55, 98, 14);
+		panel.add(lblNewLabel);
+		
+		JButton changePasswordButton = new JButton("Change Password");
+		changePasswordButton.setBounds(10, 106, 143, 25);
+		panel.add(changePasswordButton);
+		
+		String pass1 = passwordText.getText();
+		String pass2 = passwordText2.getText();
+		boolean same = true;
+		while(same) {
+			if (pass1.equals(pass2)) {
+				same = false;
+				//Password cant be the same
+			}
+		}
+		
+		Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+		Matcher match = pattern.matcher(pass1);
+		Pattern pattern2 = Pattern.compile("\\d");
+		Matcher match2 = pattern2.matcher(pass1);
+		boolean digit = false;
+		boolean specialCharacters = false;
+		if (match.find()) {
+			specialCharacters = true;
+		}
+		if (match2.find()) {
+			digit = true;
+		}
+
+		if ((pass1.length() >= 5)  && (specialCharacters)  && (digit)){
+			//change password
+		} 
+		
 	}
-	}
-	//
+}
+	
 
 
