@@ -18,7 +18,7 @@ public class UI {
 		JPanel northPanel = new JPanel();
 		Log_In.CreateLogInButton(jf, northPanel);
 		SearchBar bar = new SearchBar(northPanel);
-		SearchButton.createSearchButton(jf, northPanel, bar);
+		SearchButton.createSearchButton(jf, northPanel);
 		CreateAccount.createAccountButton(jf, northPanel);
 		//Sort.createSortMenu(jf,northPanel);
 		jf.setVisible(true);
