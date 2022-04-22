@@ -20,11 +20,12 @@ public class Sort {
 	public static ArrayList<VideoGame> sortedGamesPriceDe = new ArrayList<>();
 	public static ArrayList<VideoGame> sortedGamesPriceAs = new ArrayList<>();
 	public static ArrayList<VideoGame> sortedGamesAlpha = new ArrayList<>();
+	public static ArrayList<VideoGame> sortedGamesDev = new ArrayList<>();
 	public static Object[][] sortedData;
 	
 
 	public static void createSortMenu(JFrame jf, JPanel panel) {
-		String[] options = {"Unsorted", "Alphabetically", "Price Descending", "Price Ascending"};
+		String[] options = {"Unsorted", "Alphabetically", "Developer", "Price Descending", "Price Ascending"};
 
 		JComboBox<String> jComboBox = new JComboBox<>(options);
 
@@ -41,6 +42,7 @@ public class Sort {
 		Main.parseVideoGames(sortedGamesPriceAs);
 		Main.parseVideoGames(sortedGamesPriceDe);
 		Main.parseVideoGames(sortedGamesAlpha);
+		Main.parseVideoGames(sortedGamesDev);
 		ArrayList<VideoGame> games = new ArrayList<>();
 		Main.parseVideoGames(games);
 		
@@ -55,6 +57,9 @@ public class Sort {
 				}
 				else if (selected == "Alphabetically") {
 					sortAlphabet();
+				}
+				else if (selected == "Developer") {
+					sortDeveloper();
 				} else {
 					
 					sortTable(games,UI.jf);
@@ -86,6 +91,13 @@ public class Sort {
                     o2.getName()));
 		sortTable(sortedGamesAlpha,UI.jf);
 		
+	}
+	
+	public static void sortDeveloper() {
+		sortedGamesDev.sort((o1, o2)
+				-> o1.getDeveloper().compareTo(
+						o2.getDeveloper()));
+		sortTable(sortedGamesDev,UI.jf);
 	}
 
 	public static void sortTable(ArrayList<VideoGame> games, JFrame jf) {
