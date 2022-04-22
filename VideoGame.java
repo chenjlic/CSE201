@@ -1,4 +1,4 @@
-public class VideoGame {
+public class VideoGame implements Comparable{ 
 	//=========================== Properties
 	private String name, developer, description;
 	private String[] platforms;
@@ -18,6 +18,11 @@ public class VideoGame {
 	}
 	
 	//=========================== Methods
+	@Override
+	public int compareTo(Object o) {
+		int comparePrice = (int)((VideoGame) o).getPrice();
+		return (int)this.getPrice() - comparePrice;
+	}
 	public String toString() {
 		String platformsFormatted = "";
 		for(int i = 0; i < platforms.length; i++) {
