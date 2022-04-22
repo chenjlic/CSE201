@@ -63,11 +63,11 @@ public class ViewGames {
 		column1.setCellRenderer(center);
 		table.setRowHeight(80);
 		
-		ViewGames.table.getTableHeader().repaint();
-		ViewGames.model.fireTableDataChanged();
+		
 		
 		jf.getContentPane().add(scrollPane, BorderLayout.CENTER);
-		
+		ViewGames.table.getTableHeader().repaint();
+		ViewGames.model.fireTableDataChanged();
 	}
 	
 	public static void swap(int index1, int index2) {

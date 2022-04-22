@@ -37,7 +37,13 @@ public class Sort {
 		jf.getContentPane().add(panel, BorderLayout.NORTH);
 		panel.add(jButton);
 		jf.getContentPane().add(panel, BorderLayout.NORTH);
-
+		
+		Main.parseVideoGames(sortedGamesPriceAs);
+		Main.parseVideoGames(sortedGamesPriceDe);
+		Main.parseVideoGames(sortedGamesAlpha);
+		ArrayList<VideoGame> games = new ArrayList<>();
+		Main.parseVideoGames(games);
+		
 		jButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent E) {
 				String selected = (String) jComboBox.getSelectedItem();
@@ -50,8 +56,7 @@ public class Sort {
 				else if (selected == "Alphabetically") {
 					sortAlphabet();
 				} else {
-					ArrayList<VideoGame> games = new ArrayList<>();
-					Main.parseVideoGames(games);
+					
 					sortTable(games,UI.jf);
 					
 				}
@@ -60,7 +65,7 @@ public class Sort {
 	}
 
 	public static void sortPriceAscend() {
-		Main.parseVideoGames(sortedGamesPriceAs);
+		
 		sortedGamesPriceAs.sort((o1, o2)
                 -> o1.compareTo(o2));
 		sortTable(sortedGamesPriceAs,UI.jf);
@@ -68,8 +73,6 @@ public class Sort {
 	}
 
 	public static void sortPriceDescend() {
-		sortedGamesPriceDe = new ArrayList<>();
-		Main.parseVideoGames(sortedGamesPriceDe);
 		sortedGamesPriceDe.sort((o1, o2)
                 -> o2.compareTo(o1));
 		sortTable(sortedGamesPriceDe,UI.jf);
@@ -77,7 +80,7 @@ public class Sort {
 	}
 
 	public static void sortAlphabet() {
-		Main.parseVideoGames(sortedGamesAlpha);
+	
 		sortedGamesAlpha.sort((o1, o2)
                 -> o1.getName().compareTo(
                     o2.getName()));
@@ -92,7 +95,7 @@ public class Sort {
 			ViewGames.table.getColumnModel().getColumn(k).setHeaderValue(games.get(i).getName());
 
 		}
-		ViewGames.table.getTableHeader().repaint();
+		
 		for (int i = 0, k = 1; i < games.size(); i++, k++) {
 			ViewGames.model.setValueAt(games.get(i).getDescription(), 0, k);
 			ViewGames.model.setValueAt(games.get(i).getPlatformString(), 1, k);
@@ -101,5 +104,6 @@ public class Sort {
 			
 		}
 		ViewGames.model.fireTableDataChanged();
+		ViewGames.table.getTableHeader().repaint();
 	}
 }
