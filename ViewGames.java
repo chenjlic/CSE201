@@ -25,11 +25,10 @@ public class ViewGames {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void viewGames(JFrame jf) {
-		ArrayList<VideoGame> games = new ArrayList<>();
-		Main.parseVideoGames(games);
-		columnNames = new Object[games.size() + 1];
-		data = new Object[4][games.size() + 1];
+	public static void viewGames(JFrame jf, ArrayList<VideoGame> games) {
+				
+		columnNames = new Object[games.size()+1];
+		data = new Object[4][games.size()+1];
 		columnNames[0] = "Title";
 		data[0][0] = "Description";
 		data[1][0] = "Platform";

@@ -14,13 +14,14 @@ public class UI {
 		jf.setSize(1400,600);
 		jf.setResizable(false);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ViewGames.viewGames(jf);
+		ViewGames.viewGames(jf, games);
 		JPanel northPanel = new JPanel();
 		Log_In.CreateLogInButton(jf, northPanel);
 		SearchBar bar = new SearchBar(northPanel);
 		SearchButton.createSearchButton(jf, northPanel);
 		CreateAccount.createAccountButton(jf, northPanel);
 		Sort.createSortMenu(jf,northPanel);
+		FilterDropDown.createFilterButton(jf, northPanel);
 		jf.setVisible(true);
 		
 	}
