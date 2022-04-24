@@ -3,7 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 
 
@@ -75,7 +78,61 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	
-
+	public static Map<String, String[]> getUserInfo() {
+		File file = new File("UserAccounts.txt");
+		Scanner input = null;
+		String inputLine;
+		String user;
+		String password;
+		String securityQ;
+		String securityA;
+		String properties[];
+		Map<String, String[]> accounts = new HashMap<>();
+		try {
+			input = new Scanner(file);
+			while(input.hasNext()) {
+				inputLine = input.nextLine();
+				properties = inputLine.split("\t");
+				user = properties[0];
+				password = properties[1];
+				securityQ = properties[2];
+				securityA = properties[3];
+				accounts.put(user,properties);
+			}
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			input.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return accounts;
+	}
+	public static void rewriteAccounts(Map<String,String[]> accounts) {
+		File file = new File("UserAccounts.txt");
+		PrintWriter pw = null;
+		try {
+			
+			pw = new PrintWriter(new FileOutputStream(file), true);
+			for(Map.Entry<String,String[]> e: accounts.entrySet()) {
+				pw.write(e.getValue()[0] + "\t"+ e.getValue()[1] + "\t" +  
+			e.getValue()[2] + "\t" +  e.getValue()[3] + "\n");
+			}
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			pw.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
 
