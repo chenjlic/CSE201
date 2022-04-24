@@ -13,6 +13,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import javax.swing.JCheckBox;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 
 
 public class ViewGames {
@@ -28,12 +31,13 @@ public class ViewGames {
 	public static void viewGames(JFrame jf, ArrayList<VideoGame> games) {
 				
 		columnNames = new Object[games.size()+1];
-		data = new Object[4][games.size()+1];
+		data = new Object[5][games.size()+1];
 		columnNames[0] = "Title";
 		data[0][0] = "Description";
 		data[1][0] = "Platform";
 		data[2][0] = "Developer";
 		data[3][0] = "Price";
+		data[4][0] = "Add to favorite";
 		for (int i = 0, k = 1; i < games.size() ; i++, k++) {
 			columnNames[k] = games.get(i).getName();
 		}
@@ -42,11 +46,30 @@ public class ViewGames {
 			data[1][k] = games.get(i).getPlatformString();
 			data[2][k]= games.get(i).getDeveloper();
 			data[3][k] = games.get(i).getPrice();
+			data[4][k] = Boolean.FALSE;
 		}
 		model = new DefaultTableModel(data, columnNames);
-		table = new JTable(model);
+		 table = new JTable(model) {
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
+                if(getValueAt(row, column) instanceof Boolean) {
+                    return super.getDefaultRenderer(Boolean.class);
+                } else {
+                    return super.getCellRenderer(row, column);
+                }
+            }
+
+            @Override
+            public TableCellEditor getCellEditor(int row, int column) {
+                if(getValueAt(row, column) instanceof Boolean) {
+                    return super.getDefaultEditor(Boolean.class);
+                } else {
+                    return super.getCellEditor(row, column);
+                }
+            }
+        };
 		scrollPane = new JScrollPane(table);
-	
+		
 		
 		table.setAutoResizeMode( JTable.AUTO_RESIZE_OFF);
 		table.setFillsViewportHeight(true);	
