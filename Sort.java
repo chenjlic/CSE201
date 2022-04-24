@@ -22,7 +22,7 @@ public class Sort {
 	public static ArrayList<VideoGame> sortedGamesAlpha = new ArrayList<>();
 	public static ArrayList<VideoGame> sortedGamesDev = new ArrayList<>();
 	public static Object[][] sortedData;
-	
+	public static ArrayList<VideoGame> games = new ArrayList<>();
 
 	public static void createSortMenu(JFrame jf, JPanel panel) {
 		String[] options = {"Unsorted", "Alphabetically", "Developer", "Price Descending", "Price Ascending"};
@@ -43,7 +43,6 @@ public class Sort {
 		Main.parseVideoGames(sortedGamesPriceDe);
 		Main.parseVideoGames(sortedGamesAlpha);
 		Main.parseVideoGames(sortedGamesDev);
-		ArrayList<VideoGame> games = new ArrayList<>();
 		Main.parseVideoGames(games);
 		
 		jButton.addActionListener(new ActionListener() {
