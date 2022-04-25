@@ -67,6 +67,7 @@ public class Login_UI {
 			        	}
 			        }, 2000);
 			        Log_In.logged(AccountText.getText());
+			        AddToFavorite.currentAccount(AccountText.getText());
 				}
 				else {
 					JFrame f2 = new JFrame("Failed!");

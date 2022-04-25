@@ -61,31 +61,37 @@ public class Main {
 	}
 	
 	public static void parseFavoriteGames(ArrayList<VideoGame> favorites) {
+		ArrayList<String> gameTitles = new ArrayList<>();
+		ArrayList<VideoGame> games = new ArrayList<>();
+		parseVideoGames(games);
 		File file;
 		Scanner input = null;
-		String inputLine;
-		String[] properties = new String[5]; 
-		String name;
-		String description;
-		String[] platforms;
-		String developer;
-		Double price;
 		
+		String inputLine;
+		String[] properties;
+	
 		
 		try {
-			file = new File("FavoriteGames.txt");
+			file = new File("AccountFavorites.txt");
+		
 			input = new Scanner(file);
-			input.next();
 			while(input.hasNext()) {
 				inputLine = input.nextLine();
 				properties = inputLine.split("\t");
-				name = properties[0];
-				description = properties[1];
-				platforms = properties[2].split("/");
-				developer = properties[3];
-				price = Double.parseDouble(properties[4]);
-				favorites.add(new VideoGame(name,description,platforms, developer, price));
+				//Temp placeholder
+				if(properties[0].equals("asdf")) {
+					for(int i = 1; i < properties.length;i++) {
+						gameTitles.add(properties[i]);
+					}
+				}
 			}
+			for (int i = 0; i < gameTitles.size(); i++) {
+				if(gameTitles.get(i).equals(games.get(i).getName())) {
+					favorites.add(games.get(i));
+				}
+			}
+			
+			
 			
 		} catch (FileNotFoundException e){
 			e.printStackTrace();
@@ -175,5 +181,6 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
+	
 }
 
