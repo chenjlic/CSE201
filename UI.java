@@ -16,12 +16,14 @@ public class UI {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf, games);
 		JPanel northPanel = new JPanel();
+		CreateAccount.createAccountButton(jf, northPanel);
 		Log_In.CreateLogInButton(jf, northPanel);
 		SearchBar bar = new SearchBar(northPanel);
 		SearchButton.createSearchButton(jf, northPanel);
-		CreateAccount.createAccountButton(jf, northPanel);
+		
 		Sort.createSortMenu(jf,northPanel);
 		FilterDropDown.createFilterButton(jf, northPanel);
+		AddToFavorite.FavoriteButton(jf, northPanel);
 		jf.setVisible(true);
 		
 	}
