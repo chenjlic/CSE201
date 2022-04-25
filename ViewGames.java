@@ -63,7 +63,6 @@ public class ViewGames {
 		table.setRowHeight(80);
 		
 		
-		
 		jf.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		ViewGames.table.getTableHeader().repaint();
 		ViewGames.model.fireTableDataChanged();

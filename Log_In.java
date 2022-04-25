@@ -27,6 +27,8 @@ public class Log_In {
 	public static JLabel log = new JLabel("");
 	public static JButton outbutton = new JButton("Log Out");
 	public static JButton inbutton = new JButton("Log In");
+	public static JButton fullCatalog = new JButton("Show Full Catalog");
+	public static JButton favorites = new JButton("Show Favorites");
 //=========================== Constructors
 
 	
@@ -52,8 +54,29 @@ public class Log_In {
 				logout();
 			}
 		});
+		favorites.setSize(30, 100);
+		favorites.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showFavorites();
+				
+			}
+		});
+		fullCatalog.setSize(30,100);
+		fullCatalog.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showFullCatalog();
+			}
+		});
 		inbutton.setVisible(true);
 		outbutton.setVisible(false);
+		favorites.setVisible(false);
+		fullCatalog.setVisible(false);
+		panel.add(fullCatalog);
+		panel.add(favorites);
 		panel.add(outbutton);
 
 	}
@@ -112,14 +135,28 @@ public class Log_In {
 			log.setText("Logged in as: " + account);
 			inbutton.setVisible(false);
 			outbutton.setVisible(true);
+			favorites.setVisible(true);
 		}
 	}
-
+	
+	public static void showFavorites() {
+		favorites.setVisible(false);
+		fullCatalog.setVisible(true);
+		UI.favCatalog();
+	}
+	
+	public static void showFullCatalog() {
+		favorites.setVisible(true);
+		fullCatalog.setVisible(false);
+		UI.fullCatalog();
+	}
+	
 	public static void logout() {
 		login = false;
 		log.setText("");
 		inbutton.setVisible(true);
 		outbutton.setVisible(false);
+		favorites.setVisible(false);
 	}
 
 	public Map<String, String> map() {
