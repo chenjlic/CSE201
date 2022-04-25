@@ -1,0 +1,2 @@
+Valorant	Tactical Shooting game involving two teams with 5 players in each team.	Windows	RiotGames Website	0
+Counter-Strike: Global Offensive	First-person shooter video game.	Windows/Mac/XboxOne/Linux/Xbox360/PS3	Valve	0

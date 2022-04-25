@@ -60,6 +60,47 @@ public class Main {
 	
 	}
 	
+	public static void parseFavoriteGames(ArrayList<VideoGame> favorites) {
+		File file;
+		Scanner input = null;
+		String inputLine;
+		String[] properties = new String[5]; 
+		String name;
+		String description;
+		String[] platforms;
+		String developer;
+		Double price;
+		
+		
+		try {
+			file = new File("FavoriteGames.txt");
+			input = new Scanner(file);
+			input.next();
+			while(input.hasNext()) {
+				inputLine = input.nextLine();
+				properties = inputLine.split("\t");
+				name = properties[0];
+				description = properties[1];
+				platforms = properties[2].split("/");
+				developer = properties[3];
+				price = Double.parseDouble(properties[4]);
+				favorites.add(new VideoGame(name,description,platforms, developer, price));
+			}
+			
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			input.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
 	public static void storeUserInfo(String username, String password, String recoveryQuestion, String recoveryAnswer) {
 		File file = new File("UserAccounts.txt");
 		PrintWriter pw = null;
