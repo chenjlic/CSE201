@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class FilterDropDown {
+	public static ArrayList<VideoGame>filteredGames;
+	
 	public static void createFilterButton(JFrame jf, JPanel panel) {
 	JButton filterButton = new JButton("Filter");
 	filterButton.setSize(20,20);
@@ -112,11 +114,12 @@ public static void byDeveloper(JFrame jf) {
             	ArrayList<VideoGame> games = new ArrayList<>();
 				
 				  Main.parseVideoGames(games);
-				  ArrayList<VideoGame>filteredGames = Filter.filterByDev(includeText.getText(), games);
+				  filteredGames = Filter.filterByDev(includeText.getText(), games);
 				
 				  JFrame newFrame = filteredFrame();
 				  ViewGames.viewGames(newFrame, filteredGames);
 				 jf.dispose();
+				 Filter.filtered = true;
 }
 	 });
 }
@@ -145,11 +148,12 @@ public static void byPlatform(JFrame jf) {
             	ArrayList<VideoGame> games = new ArrayList<>();
 				
 				  Main.parseVideoGames(games);
-				  ArrayList<VideoGame>filteredGames = Filter.filterByPlatform(includeText.getText(), games);
+				  filteredGames = Filter.filterByPlatform(includeText.getText(), games);
 				
 				  JFrame newFrame = filteredFrame();
 				  ViewGames.viewGames(newFrame, filteredGames);
 				 jf.dispose();
+				 Filter.filtered = true;
 }
 	 });
 }
@@ -195,12 +199,13 @@ public static void byPlatform(JFrame jf) {
 					  ArrayList<VideoGame> games = new ArrayList<>();
 					
 					  Main.parseVideoGames(games);
-					  ArrayList<VideoGame>filteredGames = Filter.filterByPrice(Integer.parseInt(lowText.getText()),
+					  filteredGames = Filter.filterByPrice(Integer.parseInt(lowText.getText()),
 					  Integer.parseInt(highText.getText()), games); 
 					
 					  JFrame newFrame = filteredFrame();
 					  ViewGames.viewGames(newFrame, filteredGames);
 					 jf.dispose();
+					 Filter.filtered = true;
 	            	
 }
 });
@@ -212,7 +217,7 @@ public static void byPlatform(JFrame jf) {
 		ViewGames.viewGames(newFrame, games);
 		
 		jf.dispose();
-		
+		Filter.filtered = false;
 	}
 }
 
