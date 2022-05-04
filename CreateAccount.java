@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class CreateAccount {
 	private static JTextField recoveryQuestionField;
 	private static JTextField recoveryAnswerField;
-	private static JButton button;
+	public static JButton button;
 	private static JFrame frame;
 	private static JPanel panel;
 	private static JLabel AccountLabel;

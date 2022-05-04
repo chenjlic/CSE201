@@ -14,7 +14,7 @@ public class UI {
 
 		
 		jf.setLayout(new BorderLayout());
-		jf.setSize(1400,600);
+		jf.setSize(1600,600);
 
 		jf.setResizable(false);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
