@@ -9,9 +9,11 @@ public class UI {
 	public UI() {
 		ArrayList<VideoGame> games = new ArrayList<>();
 		Main.parseVideoGames(games);
+
 		
 		jf.setLayout(new BorderLayout());
 		jf.setSize(1400,600);
+
 		jf.setResizable(false);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf, games);
@@ -22,8 +24,23 @@ public class UI {
 		CreateAccount.createAccountButton(jf, northPanel);
 		Sort.createSortMenu(jf,northPanel);
 		FilterDropDown.createFilterButton(jf, northPanel);
-		AddEntry.createButton(jf, northPanel);
+    AddEntry.createButton(jf, northPanel);
+
+		AddToFavorite.FavoriteButton(jf, northPanel);
+		
 		jf.setVisible(true);
+		//JPanel southPanel = new JPanel();
+		
+		
+	}
+	public static void fullCatalog() {
+		ViewGames.viewGames(jf, games);
+		
+	}
+	public static void favCatalog() {
+		
+		ViewFavorites.viewFavorites(jf, favorites);
+
 		
 	}
 
