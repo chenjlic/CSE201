@@ -112,11 +112,12 @@ public class Sort {
 					-> o1.getDeveloper().compareTo(
 							o2.getDeveloper()));
 			sortTable(FilterDropDown.filteredGames,UI.jf);
-		}
+		} else {
 		sortedGamesDev.sort((o1, o2)
 				-> o1.getDeveloper().compareTo(
 						o2.getDeveloper()));
 		sortTable(sortedGamesDev,UI.jf);
+		}
 	}
 
 	public static void sortTable(ArrayList<VideoGame> games, JFrame jf) {
