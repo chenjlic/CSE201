@@ -6,8 +6,10 @@ import javax.swing.*;
 
 public class UI {
 	static JFrame jf = new JFrame("Video Game Catalog");
+	static ArrayList<VideoGame> games = new ArrayList<>();
+	static ArrayList<VideoGame> favorites = new ArrayList<>();
 	public UI() {
-		ArrayList<VideoGame> games = new ArrayList<>();
+		
 		Main.parseVideoGames(games);
 
 		
@@ -28,10 +30,10 @@ public class UI {
 
 		AddToFavorite.FavoriteButton(jf, northPanel);
 		
-		jf.setVisible(true);
+
 		//JPanel southPanel = new JPanel();
 		
-		
+		jf.setVisible(true);
 	}
 	public static void fullCatalog() {
 		ViewGames.viewGames(jf, games);
