@@ -23,7 +23,7 @@ public class Sort {
 	public static ArrayList<VideoGame> sortedGamesDev = new ArrayList<>();
 	public static Object[][] sortedData;
 	public static ArrayList<VideoGame> games = new ArrayList<>();
-
+	
 	public static void createSortMenu(JFrame jf, JPanel panel) {
 		String[] options = {"Unsorted", "Alphabetically", "Developer", "Price Descending", "Price Ascending"};
 
@@ -69,30 +69,50 @@ public class Sort {
 	}
 
 	public static void sortPriceAscend() {
-		
-		sortedGamesPriceAs.sort((o1, o2)
-                -> o1.compareTo(o2));
-		sortTable(sortedGamesPriceAs,UI.jf);
-		
+		if(Filter.filtered == true) {
+			FilterDropDown.filteredGames.sort((o1, o2)
+	                -> o1.compareTo(o2));
+			sortTable(FilterDropDown.filteredGames,UI.jf);
+		} else {
+			sortedGamesPriceAs.sort((o1, o2)
+					-> o1.compareTo(o2));
+			sortTable(sortedGamesPriceAs,UI.jf);
+		}
 	}
 
 	public static void sortPriceDescend() {
-		sortedGamesPriceDe.sort((o1, o2)
-                -> o2.compareTo(o1));
-		sortTable(sortedGamesPriceDe,UI.jf);
-		
+		if(Filter.filtered == true) {
+			FilterDropDown.filteredGames.sort((o1, o2)
+	                -> o2.compareTo(o1));
+			sortTable(FilterDropDown.filteredGames,UI.jf);
+		} else {
+			sortedGamesPriceDe.sort((o1, o2)
+					-> o2.compareTo(o1));
+			sortTable(sortedGamesPriceDe,UI.jf);
+		}
 	}
 
 	public static void sortAlphabet() {
-	
+		if(Filter.filtered == true) {
+			FilterDropDown.filteredGames.sort((o1, o2)
+	                -> o1.getName().compareTo(
+	                        o2.getName()));
+			sortTable(FilterDropDown.filteredGames,UI.jf);
+		} else {
 		sortedGamesAlpha.sort((o1, o2)
                 -> o1.getName().compareTo(
                     o2.getName()));
 		sortTable(sortedGamesAlpha,UI.jf);
-		
+		}
 	}
 	
 	public static void sortDeveloper() {
+		if(Filter.filtered == true) {
+			FilterDropDown.filteredGames.sort((o1, o2)
+					-> o1.getDeveloper().compareTo(
+							o2.getDeveloper()));
+			sortTable(FilterDropDown.filteredGames,UI.jf);
+		}
 		sortedGamesDev.sort((o1, o2)
 				-> o1.getDeveloper().compareTo(
 						o2.getDeveloper()));
