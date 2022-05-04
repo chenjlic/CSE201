@@ -6,24 +6,26 @@ import javax.swing.*;
 
 public class UI {
 	static JFrame jf = new JFrame("Video Game Catalog");
-	static ArrayList<VideoGame> games = new ArrayList<>();
-	static ArrayList<VideoGame> favorites = new ArrayList<>();
 	public UI() {
-		
+		ArrayList<VideoGame> games = new ArrayList<>();
 		Main.parseVideoGames(games);
+
+		
 		jf.setLayout(new BorderLayout());
-		jf.setSize(1600,500);
+		jf.setSize(1400,600);
+
 		jf.setResizable(false);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ViewGames.viewGames(jf, games);
 		JPanel northPanel = new JPanel();
-		CreateAccount.createAccountButton(jf, northPanel);
 		Log_In.CreateLogInButton(jf, northPanel);
 		SearchBar bar = new SearchBar(northPanel);
 		SearchButton.createSearchButton(jf, northPanel);
-		
+		CreateAccount.createAccountButton(jf, northPanel);
 		Sort.createSortMenu(jf,northPanel);
 		FilterDropDown.createFilterButton(jf, northPanel);
+    AddEntry.createButton(jf, northPanel);
+
 		AddToFavorite.FavoriteButton(jf, northPanel);
 		
 		jf.setVisible(true);
@@ -38,6 +40,8 @@ public class UI {
 	public static void favCatalog() {
 		
 		ViewFavorites.viewFavorites(jf, favorites);
+
+		
 	}
 
 }

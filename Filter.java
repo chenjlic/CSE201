@@ -17,6 +17,7 @@ public class Filter {
 	 * 
 	 * }
 	 */
+	public static boolean filtered = false;
 	
 	public static ArrayList<VideoGame> filterByPrice (int low, int high, ArrayList<VideoGame> games) {
 
