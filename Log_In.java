@@ -134,6 +134,7 @@ public class Log_In {
 		if (login == true) {
 			log.setText("Logged in as: " + account);
 			inbutton.setVisible(false);
+			CreateAccount.button.setVisible(false);
 			outbutton.setVisible(true);
 			favorites.setVisible(true);
 		}
@@ -155,6 +156,7 @@ public class Log_In {
 		login = false;
 		log.setText("");
 		inbutton.setVisible(true);
+		CreateAccount.button.setVisible(true);
 		outbutton.setVisible(false);
 		favorites.setVisible(false);
 	}
